@@ -1,4 +1,4 @@
--- Cleansed DIM_Date Table --
+-- Cleansed DIM_Date Table 
 
 SELECT 
   [DateKey], 
@@ -25,7 +25,8 @@ FROM
 WHERE 
   CalendarYear >= 2019
 
--- Cleansed DIM_Customers Table --
+-- Cleansed DIM_Customers Table 
+  
 SELECT 
   c.customerkey AS CustomerKey, 
   --      ,[GeographyKey]
@@ -67,7 +68,7 @@ FROM
 ORDER BY 
   CustomerKey ASC -- Ordered List by CustomerKey
 
-  -- Cleansed DIM_Products Table --
+  -- Cleansed DIM_Products Table 
   
 SELECT 
   p.[ProductKey], 
@@ -115,7 +116,7 @@ FROM
 order by 
   p.ProductKey asc
   
--- Cleansed FACT_InternetSales Table --
+-- Cleansed FACT_InternetSales Table 
   
 SELECT 
   [ProductKey], 
