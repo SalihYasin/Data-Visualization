@@ -1,4 +1,4 @@
--- Cleansed DIM_Date Table 
+-- Cleansed [dbo].[DIM_Calendar] Table
 
 SELECT 
   [DateKey], 
@@ -21,7 +21,7 @@ SELECT
   --[FiscalYear], 
   --[FiscalSemester] 
 FROM 
- [AdventureWorksDW2019].[dbo].[DimDate]
+ [dbo].[DIM_Calendar]
 WHERE 
   CalendarYear >= 2019
 
@@ -63,7 +63,7 @@ SELECT
   --      ,[CommuteDistance]
   g.city AS [Customer City] -- Joined in Customer City from Geography Table
 FROM 
-  [AdventureWorksDW2019].[dbo].[DimCustomer] as c
+  [dbo].[DIM_Customers] as c
   LEFT JOIN dbo.dimgeography AS g ON g.geographykey = c.geographykey 
 ORDER BY 
   CustomerKey ASC -- Ordered List by CustomerKey
@@ -110,7 +110,7 @@ SELECT
   --      ,[EndDate], 
   ISNULL (p.Status, 'Outdated') AS [Product Status] 
 FROM 
-  [AdventureWorksDW2019].[dbo].[DimProduct] as p
+  [dbo].[DIM_Products] as p
   LEFT JOIN dbo.DimProductSubcategory AS ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey 
   LEFT JOIN dbo.DimProductCategory AS pc ON ps.ProductCategoryKey = pc.ProductCategoryKey 
 order by 
@@ -145,7 +145,7 @@ SELECT
   --  ,[DueDate] 
   --  ,[ShipDate] 
 FROM 
-  [AdventureWorksDW2019].[dbo].[FactInternetSales]
+ [dbo].[FACT_InternetSales]
 WHERE 
   LEFT (OrderDateKey, 4) >= YEAR(GETDATE()) -2 -- Ensures we always only bring two years of date from extraction.
 ORDER BY
