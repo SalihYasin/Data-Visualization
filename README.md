@@ -23,7 +23,7 @@ In this project, the procedures that should be suitable for the relevant data se
 - Visualization Of Data
 - Making a Presentation To The Employer
 
-    ## Datasets used
+    ## Datasets Used
 
 - Basic select statements (select, where, group by, having).
 - Joins (inner, outer, left, right).
